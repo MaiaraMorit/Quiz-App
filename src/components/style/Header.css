@@ -1,0 +1,21 @@
+.header {
+  background-color: #2196F3;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.header h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Title description */
+.header p {
+  font-size: 1.2rem;
+  margin: 5px 0 0;
+  font-style: italic;
+}
