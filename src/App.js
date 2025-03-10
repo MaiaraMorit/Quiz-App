@@ -1,11 +1,14 @@
 import Header from "./components/Header";
-import './components/style/Header.css'; 
+import Quiz from "./components/Quiz";
+import './components/style/Header.css';
+import './components/style/Quiz.css';
 
 
 function App() {
   return (
    <div>
       <Header />
+      <Quiz />
    </div>
   );
 }

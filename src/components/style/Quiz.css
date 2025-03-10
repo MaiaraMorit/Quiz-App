@@ -1,0 +1,34 @@
+.question-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.question-number {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid gray;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+/* When the number is the active question, it is green */
+.question-number.active {
+  background-color: green;
+  color: white;
+  border-color: green;
+}
+
+/* When the number is not from the active question, it is grayed out */
+.question-number:not(.active):hover {
+  background-color: lightgray;
+}
