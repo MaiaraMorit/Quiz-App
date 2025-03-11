@@ -16,18 +16,27 @@ const Quiz = () => {
   }, []);
 
 
-  const handleQuestionClick = (index) => {
-    setCurrentQuestionIndex(index); // Muda o índice da questão atual
-    console.log("Pergunta selecionada:", questions[index]); // Exibe a pergunta no console
+  const handleQuestionNavigation = (event) => {
+    setCurrentQuestionIndex((prevIndex) => {
+      let newIndex;
+  
+      if (event.target.classList.contains("next-question")) {
+        newIndex = prevIndex + 1;
+      } else if (event.target.classList.contains("previous-question")) {
+        newIndex = prevIndex - 1;
+      }
+  
+      // limit of array
+      if (newIndex >= questions.length) {
+        return 0;
+      } else if (newIndex < 0) {
+        return questions.length - 1; // Se for menor que 0, volta para o último.
+      }
+  
+      return newIndex;
+    });
   };
 
-  const handleNextQuestion = () => {
-    setCurrentQuestionIndex((prevIndex) => {
-      const newIndex = (prevIndex + 1) % questions.length;
-      console.log("proxima questao com button:", questions[newIndex]);
-      return newIndex;
-    }); // Avança para a próxima questão
-  };
 
   return (
     <div>
@@ -36,14 +45,24 @@ const Quiz = () => {
               <div
                 key={index}
                 className={`question-number ${currentQuestionIndex === index ? 'active' : ''}`}
-                onClick={() => handleQuestionClick(index)} // Ao clicar no número, muda a questão
+                onClick={() => handleQuestionNavigation(index)} // Ao clicar no número, muda a questão
               >
                 {index + 1}
               </div>
             ))}
           </div>
 
-          <button onClick={handleNextQuestion}>Próxima Questão</button>
+          <button 
+          className="previous-question"
+          onClick={handleQuestionNavigation}>
+            Questão Anterior
+          </button>
+          
+          <button 
+          className="next-question"
+          onClick={handleQuestionNavigation}>
+            Próxima Questão
+          </button>
     </div>
   );
 };
