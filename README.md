@@ -51,7 +51,4 @@ Gerencia o estado do jogo, controla a mudança de perguntas e a contagem da pont
 - Criar um banco de dados para armazenar perguntas dinâmicas.
 - Melhorar o design utilizando frameworks como Tailwind CSS.
 
-## 📄 Licença
-Este projeto está sob a licença MIT. Sinta-se à vontade para contribuir! 😃
-
 
